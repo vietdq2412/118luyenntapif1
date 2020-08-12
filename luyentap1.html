@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        td,
+        th {
+            width: 250px;
+            height: 30px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Bài 1: </h1>
+    <button onclick="bai1()">runnn</button>
+    <br><br><br><br>
+
+    <br>
+    <h1>Bài 2: </h1>
+    <button onclick="bai2()">runnn</button>
+    <br><br><br><br>
+
+    <br>
+    <h1>Bài 3: </h1>
+    <button onclick="bai3()">runnn</button>
+    <br><br><br><br>
+
+    <br>
+    <h1>Bài 4: </h1>
+    <button onclick="bai4()">runnn</button>
+    <p id="bai4"></p>
+    <br><br><br><br>
+
+    <br>
+    <h1>Bài 5: </h1>
+    <button onclick="bai5()">runnn</button>
+    <br><br><br><br>
+
+    <br>
+    <table border="1">
+        <h1>Bài 6: </h1>
+        <tr>
+            <th>Doanh số(VNĐ)</th>
+            <td>10.000.000VNĐ</td>
+            <td>20.000.000VNĐ</td>
+            <td>50.000.000VNĐ</td>
+            <td>100.000.000VNĐ</td>
+        </tr>
+        <tr>
+            <th>Hoa hồng()%</th>
+            <td>5%</td>
+            <td>8%</td>
+            <td>15%</td>
+            <td>23%</td>
+        </tr>
+    </table><br>
+    <input type="text" name="" id="input" placeholder="Nhập doanh số: ">
+    <input type="text" name="" id="output" placeholder="Hoa hồng " disabled>
+    <button onclick="bai6()">runnn</button>
+    <br><br><br><br>
+
+    <br>
+    <h1>Bài 7: </h1>
+    <table border="1">
+        <caption>Bảng giá cước</caption>
+        <tr>
+            <th>6 giây đầu</th>
+            <td> 80đ </td>
+        </tr>
+        <tr>
+            <th>1 giây tiếp theo</th>
+            <td> 13.33đ </td>
+        </tr>
+    </table><br>
+    <input type="text" name="" id="time" placeholder="Nhập thời gian: ">
+    <input type="text" name="" id="price" placeholder="Cước phí: " disabled>
+    <button onclick="bai7()">runnn</button>
+    <br><br><br><br>
+    <br>
+</body>
+
+</html>
+<script>
+    function bai1() {
+        let a = prompt('nhap a: ');
+        let b = prompt('nhap b: ');
+
+        (a % b == 0) ? alert('a chia het cho b'): alert('a khong chia het cho b');
+
+    }
+
+    function bai2() {
+        let n = prompt("nhap mot so: ");
+
+        n >= 16 ? alert('đủ dk vào lớp 10') : alert('khong đủ điều kiện');
+    }
+
+    function bai3() {
+        let n = prompt("nhap mot so: ");
+        n > 0 ? alert(n + ' > 0') : n < 0 ? alert(n + '<0') : alert(n + ' = 0');
+    }
+
+    function bai4() {
+        let n1 = prompt("nhap n1: ");
+        let n2 = prompt("nhap n2: ");
+        let n3 = prompt("nhap n3: ");
+
+        //document.getElementById("bai4").innerHTML = n1 + '-' + n2 + '-' + n3;
+
+        let max = n1;
+        if (max < n2) {
+            max = n2;
+            if (max < n3) {
+                max = n3;
+            }
+        } else if (max < n3) {
+            max = n3;
+        }
+        alert('max = ' + max);
+    }
+
+    function bai5() {
+        let mid = prompt("nhap điểm giữa kì: ", 'thang 100');
+        let last = prompt('nhập điểm cuối kì: ', 'thang 100');
+
+        let avg = (mid + last * 2) / 3;
+        let result;
+
+        avg >= 75 ? result = 'tốt' : avg >= 50 ? result = 'khá' : avg >= 30 ? result = 'yếu' : result = 'tạch';
+        alert('xếp loại: ' + result);
+    }
+
+    function bai6() {
+        let sales = document.getElementById('input').value;
+        let result;
+
+        sales >= 10000000 ? result = sales * 5 / 100 :
+            sales >= 20000000 ? result = sales * 8 / 100 :
+            sales >= 50000000 ? result = sales * 15 / 100 :
+            sales >= 100000000 ? result = sales * 23 / 100 : result = 0;
+
+        let outp = document.getElementById('output').setAttribute('value', result);
+    }
+
+    function bai7() {
+        let time = document.getElementById('time').value;
+        let result;
+        if (time > 0) {
+            time <= 6 ? result = 80 * time :
+                time > 6 ? result = 80 * 6 + (time - 6) * 13.33 : result = 0;
+        }
+        document.getElementById('price').setAttribute('value', result);
+    }
+</script>
